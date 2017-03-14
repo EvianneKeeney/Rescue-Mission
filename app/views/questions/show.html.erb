@@ -1,0 +1,43 @@
+
+<h2>
+  <strong>Question:</strong>
+</h2>
+<p>
+  <%= @question.title %><br><br>
+  <%= @question.description%>
+</p>
+<%= link_to 'Edit question', edit_question_path(@question) %><br>
+<%= link_to 'Delete Question', @question , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+<br>
+<br>
+
+
+<h2>Answers</h2>
+<% @question.answers.each do |answer| %>
+  <p>
+    <strong>Answer:</strong>
+    <%= answer.answer_description %>
+  </p>
+
+<% end %>
+
+<!-- <p>New Answer for <%= @question.title %></p> -->
+
+<%= form_for([@question, @question.answers.build]) do |f| %>
+  <p>
+    <%= f.label :answer_description %><br>
+    <%= f.text_area :answer_description %>
+  </p>
+  <% if flash[:error] %>
+      <div class="notice"><%= flash[:error] %></div>
+  <% end %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+
+
+<%= link_to 'Back to Question List', questions_path %>

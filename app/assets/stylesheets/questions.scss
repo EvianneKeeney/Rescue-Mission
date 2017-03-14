@@ -1,0 +1,18 @@
+// Place all the styles related to the Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.question-header {
+  text-align : center ;
+}
+
+td {
+
+  border: 2px solid #FFFFFF;
+  margin: 5px;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+th {
+  text-align : left;
+}
